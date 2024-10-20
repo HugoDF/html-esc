@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <title>`html-esc` Examples</title>
+  </head>
+  <body>
+    <h1>`html-esc` examples</h1>
+    <my-component></my-component>
+    <script type="importmap">
+      { "imports": { "html-esc": "./html-esc.js" } }
+    </script>
+
+    <script type="module">
+      import { html } from "html-esc";
+      const message = "<strong>strong but will get escaped</strong>";
+      document.body.innerHTML = html`<div>I'm ${message}</div>`;
+    </script>
+  </body>
+</html>
