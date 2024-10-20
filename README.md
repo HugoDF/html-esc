@@ -2,7 +2,7 @@
 
 JavaScript Template Literal Tag that converts to HTML-escaped content. Eg. `` html`<div>${myVar}</div>` ``.
 
-Barebones (and tiny, [<50 lines of code](./html-esc.js)) alternative to `lit-html` and [`htl`](https://github.com/observablehq/htl), ideal for use in web components or to template in Vanilla/no build JavaScript.
+Barebones (and tiny, [<50 lines of code](./html-esc.js)) alternative to [`lit-html`](https://www.npmjs.com/package/lit-html) and [`htl`](https://github.com/observablehq/htl), ideal for use in web components or to template in Vanilla/no build JavaScript.
 
 It's ready for use straight in the browser via CDN (or copy-pasting into your project).
 
