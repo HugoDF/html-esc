@@ -1,6 +1,6 @@
 {
   "name": "html-esc",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "JavaScript Template Literal Tag that converts to HTML-escaped content. Eg. `` html`<div>${myVar}</div>` ``",
   "type": "module",
   "main": "html-esc.js",
