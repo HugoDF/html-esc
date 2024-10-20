@@ -2,12 +2,18 @@
 <html>
   <head>
     <title>`html-esc` Examples</title>
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon" />
   </head>
   <body>
     <h1>`html-esc` examples</h1>
     <my-component></my-component>
     <script type="importmap">
-      { "imports": { "html-esc": "./html-esc.js" } }
+      {
+        "imports": {
+          "html-esc": "https://esm.sh/html-esc",
+          "#html-esc": "./html-esc.js"
+        }
+      }
     </script>
 
     <script type="module">

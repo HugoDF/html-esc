@@ -1,7 +1,7 @@
 {
   "name": "html-esc",
-  "description": "JavaScript Template Literal Tag that converts to HTML-escaped content. Eg. `` html`<div>${myVar}</div>` ``",
   "version": "0.0.1",
+  "description": "JavaScript Template Literal Tag that converts to HTML-escaped content. Eg. `` html`<div>${myVar}</div>` ``",
   "type": "module",
   "main": "html-esc.js",
   "module": "html-esc.js",
@@ -24,6 +24,19 @@
     "name": "HugoDF",
     "url": "https://codewithhugo.com/about"
   },
+  "keywords": [
+    "html",
+    "escape",
+    "literal",
+    "literals",
+    "template",
+    "tagged",
+    "web components",
+    "no build"
+  ],
+  "files": [
+    "./html-esc.js"
+  ],
   "license": "MIT",
   "devDependencies": {
     "prettier": "3.3.3"
