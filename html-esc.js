@@ -17,6 +17,15 @@ function htmlSanitize(rawText = "") {
 
 export function html(strings, ...values) {
   return markSafe(
-    strings.reduce((acc, curr, i) => acc + curr + htmlSanitize(values[i]), ""),
+    strings.reduce((acc, curr, i) => {
+      const interpolatedValue = values[i];
+      return (
+        acc +
+        curr +
+        (Array.isArray(interpolatedValue)
+          ? interpolatedValue.map((item) => htmlSanitize(item)).join("")
+          : htmlSanitize(interpolatedValue))
+      );
+    }, ""),
   );
 }

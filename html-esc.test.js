@@ -26,6 +26,22 @@ test("html - doesn't escape interpolated nested tagged literals with no interpol
     `<div>${html`<div>html-tagged</div>`}</div>`,
   );
 });
+test("html - supports interpolation of lists of untagged items", (t) => {
+  t.assert.strictEqual(
+    html`<div>${["<i>hello</i>", "value"]}</div>`.valueOf(),
+    "<div>&lt;i&gt;hello&lt;/i&gt;value</div>",
+  );
+});
+test("html - supports interpolation of lists of tagged items", (t) => {
+  t.assert.strictEqual(
+    html`<ul>
+      ${[html`<li><strong>hello</strong></li>`, html`<li>value</li>`]}
+    </ul>`.valueOf(),
+    `<ul>
+      <li><strong>hello</strong></li><li>value</li>
+    </ul>`,
+  );
+});
 test("html - doesn't break on bad payloads", (t) => {
   const badPayload = `"><script>console.log('123')</script>`;
 
