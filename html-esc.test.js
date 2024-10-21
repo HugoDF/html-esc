@@ -8,7 +8,6 @@ test("html - example", (t) => {
     `<div>I'm &lt;strong&gt;strong but will get escaped&lt;/strong&gt;</div>`,
   );
 });
-
 test("html - noop when no interpolations", (t) => {
   t.assert.strictEqual(
     html`<div><h2>Hello World</h2></div>`.valueOf(),
@@ -25,6 +24,22 @@ test("html - doesn't escape interpolated nested tagged literals with no interpol
   t.assert.equal(
     html`<div>${html`<div>html-tagged</div>`}</div>`.valueOf(),
     `<div>${html`<div>html-tagged</div>`}</div>`,
+  );
+});
+test("html - supports interpolation of lists of untagged items", (t) => {
+  t.assert.strictEqual(
+    html`<div>${["<i>hello</i>", "value"]}</div>`.valueOf(),
+    "<div>&lt;i&gt;hello&lt;/i&gt;value</div>",
+  );
+});
+test("html - supports interpolation of lists of tagged items", (t) => {
+  t.assert.strictEqual(
+    html`<ul>
+      ${[html`<li><strong>hello</strong></li>`, html`<li>value</li>`]}
+    </ul>`.valueOf(),
+    `<ul>
+      <li><strong>hello</strong></li><li>value</li>
+    </ul>`,
   );
 });
 test("html - doesn't break on bad payloads", (t) => {
@@ -47,7 +62,6 @@ test("html - sanitizes attribute interpolations", (t) => {
     `<div data-attr="&amp;&lt;&gt;&quot;&apos;"></div>`,
   );
 });
-
 test("html - sanitizes dynamic children", (t) => {
   t.assert.strictEqual(
     html`${`<strong>blocked</strong>`}`.valueOf(),
