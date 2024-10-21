@@ -8,7 +8,6 @@ test("html - example", (t) => {
     `<div>I'm &lt;strong&gt;strong but will get escaped&lt;/strong&gt;</div>`,
   );
 });
-
 test("html - noop when no interpolations", (t) => {
   t.assert.strictEqual(
     html`<div><h2>Hello World</h2></div>`.valueOf(),
@@ -47,7 +46,6 @@ test("html - sanitizes attribute interpolations", (t) => {
     `<div data-attr="&amp;&lt;&gt;&quot;&apos;"></div>`,
   );
 });
-
 test("html - sanitizes dynamic children", (t) => {
   t.assert.strictEqual(
     html`${`<strong>blocked</strong>`}`.valueOf(),
